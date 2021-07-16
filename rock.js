@@ -1,4 +1,3 @@
-//computer plays rock, paper or scissors randomly
 function computerPlay(){
     let computerSelection
     let i= Math.random()*3
@@ -13,7 +12,6 @@ function computerPlay(){
     }
     return computerSelection
 }
-//decide who won the round. make sure parameters are case-sensitive
 function playRound(playerSelection,computerSelection){
     playerSelection=playerSelection.toLowerCase()
     let roundWinner
@@ -31,7 +29,6 @@ function playRound(playerSelection,computerSelection){
     }
     return roundWinner
 }
-//play 5 rounds, display message to mention winner.
 function game(){
     let playerPoints=0
     let computerPoints=0
