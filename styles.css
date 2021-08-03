@@ -25,6 +25,7 @@ h1{
     font-size: 30px;
     color:blueviolet;
     font-family: monospace;
+    height: 200px;
 }
 #current{
     font-size: 25px;
@@ -90,6 +91,7 @@ img{
     width: 850px;
     height: 50px;
     margin: 30px;
+    margin-bottom: 10px;
     background-color: blueviolet;
     color: rgb(250, 250, 126);
     font-size: 30px;
@@ -115,7 +117,7 @@ img{
     font-size: 30px;
     color: rgb(250, 250, 126);
     position: absolute;
-    margin-top: 850px;
+    margin-top: 810px;
 }
 #again:hover{
     scale:1.1;

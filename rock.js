@@ -35,6 +35,7 @@ function game(){
     let roundWinner
     let roundMessage
     const result=document.querySelector('#result')
+    result.innerText=''
     const img=document.querySelectorAll('img')
     for(let i=0; i<img.length; i++){
         img[i].addEventListener('click', () => {
@@ -44,7 +45,6 @@ function game(){
             const player=document.querySelector('#playerchoice')
             player.innerText=playerSelection.toUpperCase()
             roundMessage = (roundWinner=="tie") ? ("Tie!"):("Winner of the round is "+roundWinner+"!")
-            result.innerText=roundMessage
                 switch (roundWinner){
                     case "computer":
                         computerPoints++
@@ -59,19 +59,22 @@ function game(){
             playerScore.innerText=playerPoints
             let computerScore=document.querySelector('#computerscore')
             computerScore.innerText=computerPoints
-            }
-            else{
-                let gameWinnerMessage
-                if (computerPoints==playerPoints){
-                    gameWinnerMessage="Tie! No winner."
-                }
-                else if (computerPoints>playerPoints){
-                    gameWinnerMessage="Computer wins!"
+                if(playerPoints==5 || computerPoints==5){
+                    let gameWinnerMessage
+                    if (computerPoints==playerPoints){
+                        gameWinnerMessage="Tie! No winner."
+                    }
+                    else if (computerPoints>playerPoints){
+                        gameWinnerMessage="Computer wins!"
+                    }
+                    else{
+                        gameWinnerMessage="Player wins!"
+                    }
+                    result.innerText=gameWinnerMessage.toUpperCase()
                 }
                 else{
-                    gameWinnerMessage="Player wins!"
+                    result.innerText=roundMessage
                 }
-            result.innerText=gameWinnerMessage.toUpperCase()
             }
         } )
     }
@@ -81,6 +84,8 @@ function newgame(){
     playerScore.innerText=0
     let computerScore=document.querySelector('#computerscore')
     computerScore.innerText=0
+    const result=document.querySelector('#result')
+    result.innerText=''
     game()
 }
 game()
