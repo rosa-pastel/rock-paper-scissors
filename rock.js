@@ -10,6 +10,8 @@ function computerPlay(){
     else {
         computerSelection="scissors"
     }
+    const computer=document.querySelector('#computerchoice')
+    computer.innerText=computerSelection.toUpperCase()
     return computerSelection
 }
 function playRound(playerSelection){
@@ -32,15 +34,17 @@ function game(){
     let computerPoints=0
     let roundWinner
     let roundMessage
-    const roundResult=document.querySelector('#roundresult')
-    const gameResult=document.querySelector('#gameresult')
-    const btn=document.querySelectorAll('#choicebutton')
-    for(let i=0; i<btn.length; i++){
-        btn[i].addEventListener('click', () => {
+    const result=document.querySelector('#result')
+    const img=document.querySelectorAll('img')
+    for(let i=0; i<img.length; i++){
+        img[i].addEventListener('click', () => {
+            let playerSelection=img[i].alt.toLowerCase()
             if (playerPoints<5 && computerPoints<5){
-            roundWinner = playRound(btn[i].innerText.toLowerCase())
+            roundWinner = playRound(playerSelection)
+            const player=document.querySelector('#playerchoice')
+            player.innerText=playerSelection.toUpperCase()
             roundMessage = (roundWinner=="tie") ? ("Tie!"):("Winner of the round is "+roundWinner+"!")
-            roundResult.innerText=roundMessage
+            result.innerText=roundMessage
                 switch (roundWinner){
                     case "computer":
                         computerPoints++
@@ -51,6 +55,10 @@ function game(){
                     case  "tie":
                         break
                 }
+            let playerScore=document.querySelector('#playerscore')
+            playerScore.innerText=playerPoints
+            let computerScore=document.querySelector('#computerscore')
+            computerScore.innerText=computerPoints
             }
             else{
                 let gameWinnerMessage
@@ -63,7 +71,7 @@ function game(){
                 else{
                     gameWinnerMessage="Player wins!"
                 }
-            gameResult.innerText=gameWinnerMessage
+            result.innerText=gameWinnerMessage.toUpperCase()
             }
         } )
     }
