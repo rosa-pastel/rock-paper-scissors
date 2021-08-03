@@ -76,5 +76,13 @@ function game(){
         } )
     }
 }
+function newgame(){ 
+    const playerScore=document.querySelector('#playerscore')
+    playerScore.innerText=0
+    let computerScore=document.querySelector('#computerscore')
+    computerScore.innerText=0
+    game()
+}
 game()
-
+btn=document.querySelector('#again')
+btn.addEventListener('click',newgame)
