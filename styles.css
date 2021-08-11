@@ -37,12 +37,12 @@ h1{
     flex-direction: row;
     justify-content: center;
 }
-img:hover{
+#images>img:hover{
     scale: 1.1;
     cursor: pointer;
     transition: 0.5s ;
 }
-img{
+#images>img{
     margin: 10px;
     display: flex;
     justify-content: center;
@@ -66,24 +66,23 @@ img{
     font-size: 30px;
 }
 #playround{
-    width: 280px;
-    height: 100px;
-    font-size: 35px;
+    width: 180px;
+    height: 50px;
+    font-size: 25px;
     color: blueviolet;
     background-color: rgb(193, 248, 167);
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 #playerchoice{
-    font-size: 20px;
-    width: 70px;
+    height: 135%;
     display: flex;
     justify-content: center;
 }
 #computerchoice{
-    font-size: 20px;
-    width: 70px;
+    height: 135%;
     display: flex;
     justify-content: center;
 }
