@@ -11,7 +11,17 @@ function computerPlay(){
         computerSelection="scissors"
     }
     const computer=document.querySelector('#computerchoice')
-    computer.innerText=computerSelection.toUpperCase()
+    switch (computerSelection.toUpperCase()){
+      case 'ROCK':
+        computer.src="./pictures/rockvector_computer.png"
+        break
+      case 'PAPER':
+        computer.src="./pictures/papervector_computer.png"
+        break
+      case 'SCISSORS':
+        computer.src="./pictures/scissorsvector_computer.png"
+        break
+    }
     return computerSelection
 }
 function playRound(playerSelection){
@@ -36,14 +46,24 @@ function game(){
     let roundMessage
     const result=document.querySelector('#result')
     result.innerText=''
-    const img=document.querySelectorAll('img')
+    const img=document.querySelectorAll('#images>img')
     for(let i=0; i<img.length; i++){
         img[i].addEventListener('click', () => {
             let playerSelection=img[i].alt.toLowerCase()
             if (playerPoints<5 && computerPoints<5){
             roundWinner = playRound(playerSelection)
-            const player=document.querySelector('#playerchoice')
-            player.innerText=playerSelection.toUpperCase()
+            const player=document.getElementById('playerchoice')
+            switch (playerSelection.toUpperCase()){
+            case 'ROCK':
+              player.src = "./pictures/rockvector_player.png"
+              break
+            case 'PAPER':
+              player.src = "./pictures/papervector_player.png"
+              break
+            case 'SCISSORS':
+              player.src = "./pictures/scissorsvector_player.png"
+              break
+            }
             roundMessage = (roundWinner=="tie") ? ("Tie!"):("Winner of the round is "+roundWinner+"!")
                 switch (roundWinner){
                     case "computer":
